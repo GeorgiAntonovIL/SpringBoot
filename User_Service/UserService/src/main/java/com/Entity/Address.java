@@ -1,15 +1,14 @@
 package com.Entity;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
 import java.util.UUID;
 
-@Entity
+@Document
 @Data
-@Table(name = "addresses")
 public class Address {
     @Id
     private UUID id;

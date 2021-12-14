@@ -1,9 +1,12 @@
 package com.Repository;
 
 import com.Entity.Transaction;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
 
 import java.util.UUID;
 
-public interface TransactionRepository extends CrudRepository<Transaction, UUID> {
+@Repository
+public interface TransactionRepository extends MongoRepository<Transaction, UUID> {
 }

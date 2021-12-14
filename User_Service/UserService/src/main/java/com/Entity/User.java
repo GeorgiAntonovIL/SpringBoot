@@ -1,27 +1,24 @@
 package com.Entity;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Entity
+@Document(collection = "tap")
 @Data
-@Table(name = "users")
 public class User {
 
     @Id
     private UUID id;
-    @Column(name = "first_name")
     private String firstName;
-    @Column(name = "last_name")
     private String lastName;
-    @OneToMany(cascade = CascadeType.ALL)
     private List<Address> addresses;
-    @OneToMany(cascade = CascadeType.ALL)
     private List<Transaction> transactions;
 
 
