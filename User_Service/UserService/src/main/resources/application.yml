@@ -6,7 +6,5 @@ spring:
       host: localhost
       port: 27017
       database: myFirstMongoDB
-logging:
-  level:
-    root: TRACE
+
 
