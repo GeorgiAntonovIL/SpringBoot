@@ -7,12 +7,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Document(collection = "tap")
+@Document(collection = "tapTransactions")
 @Data
 public class Transaction {
 
     @Id
-    private UUID id;
-    private LocalDateTime dateOfExecution;
+    private String id;
+    private String dateOfExecution;
 
 }

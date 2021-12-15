@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Document(collection = "tap")
+@Document(collection = "tapUsers")
 @Data
 public class User {
 
     @Id
-    private UUID id;
+    private String id;
     private String firstName;
     private String lastName;
     private List<Address> addresses;
@@ -29,7 +29,7 @@ public class User {
     }
 
     public User(String firstName, String lastName) {
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
         this.addresses = new ArrayList<>();

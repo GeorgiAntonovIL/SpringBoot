@@ -3,21 +3,21 @@ package com.Entity;
 import java.util.UUID;
 
 public class UserDTO {
-    private UUID id;
+    private String id;
     private String firstName;
     private String lastName;
 
     public UserDTO(String firstName, String lastName) {
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
