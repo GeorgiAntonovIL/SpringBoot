@@ -4,11 +4,13 @@ networks:
     driver: bridge
 services:
   postgres:
-    container_name: container_pg
+    container_name: postgres
+    hostname: postgres
     image: "postgres:latest"
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "root"
+      POSTGRES_DB: "springboot_app"
     restart: always
     ports:
       - "5432:5432"
@@ -27,19 +29,26 @@ services:
       - my-network
 
   user-service:
-      build: .
+      build: User_Service/UserService/
       ports:
         - "8080:8080"
+      environment:
+        - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/springboot_app
+        - SPRING_DATASOURCE_USERNAME=postgres
+        - SPRING_DATASOURCE_PASSWORD=root
+        - SPRING_JPA_HIBERNATE_DDL_AUTO=update
       restart: always
       networks:
         - my-network
+      depends_on:
+        - postgres
   address-service:
-      build: .
+      build: Address_Service/AddressService/
       restart: always
       networks:
         - my-network
   transaction-service:
-      build: .
+      build: Transaction_Service/TransactionService/
       restart: always
       networks:
         - my-network

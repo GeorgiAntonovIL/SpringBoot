@@ -172,7 +172,7 @@ public class UserServiceImpl implements UserService {
 
 
     private Address getAddressForUser(User user) {
-        String addressServiceUrl = String.format("http://localhost:8082/address/create?userId=%s", user.getId());
+        String addressServiceUrl = String.format("http://address-service:8082/address/create?userId=%s", user.getId());
 
         RestTemplate template = new RestTemplate();
         String result = template.postForObject(addressServiceUrl, null, String.class);
@@ -181,7 +181,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private Transaction getTransactionForUser(User user) {
-        String transactionServiceUrl = String.format("http://localhost:8083/transaction/create?userId=%s", user.getId());
+        String transactionServiceUrl = String.format("http://transaction-service:8083/transaction/create?userId=%s", user.getId());
 
         RestTemplate template = new RestTemplate();
         String result = template.postForObject(transactionServiceUrl, null, String.class);
